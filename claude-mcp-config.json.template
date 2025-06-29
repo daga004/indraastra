@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "autoApprove": [],
+      "disabled": false,
+      "timeout": 60,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "transportType": "stdio"
+    },
+    "task manager": {
+      "autoApprove": [
+        "create_task",
+        "update_task_status",
+        "list_projects"
+      ],
+      "timeout": 60,
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/dhiraj/Documents/code/envs/mcp_dependencies",
+        "run",
+        "mcp",
+        "run",
+        "/Users/dhiraj/Documents/Cline/MCP/task-manager.py"
+      ],
+      "transportType": "stdio"
+    },
+    "long term memory": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/dhiraj/Documents/code/windsurf_mcp/mcp-server-qdrant",
+        "run",
+        "python",
+        "-m",
+        "src.mcp_server_qdrant.main"
+      ],
+      "env": {
+        "QDRANT_URL": "${QDRANT_URL:-http://localhost:6333}",
+        "COLLECTION_NAME": "${COLLECTION_NAME:-long-term-memory-collection}",
+        "EMBEDDING_PROVIDER": "${EMBEDDING_PROVIDER:-lm-studio}",
+        "LMSTUDIO_URL": "${LMSTUDIO_URL:-http://localhost:1234/v1}",
+        "LMSTUDIO_MODEL": "${LMSTUDIO_MODEL:-text-embedding-bge-m3}"
+      },
+      "autoApprove": [
+        "find",
+        "add-relation",
+        "get-related-nodes"
+      ],
+      "disabled": false,
+      "timeout": 60,
+      "transportType": "stdio"
+    }
+  }
+}

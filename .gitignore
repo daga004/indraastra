@@ -1,2 +1,17 @@
 graph_db
 .idea
+
+# MCP Server Configuration
+.env
+.env.local
+.env.*.local
+mcp-config.json
+claude-mcp-config.json
+# API Keys and Secrets
+*.key
+*.pem
+secrets/
+config/secrets/
+
+# Jujutsu (jj) version control
+.jj/
