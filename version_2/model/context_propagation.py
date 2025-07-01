@@ -29,6 +29,8 @@ class ContextPropagation:
             
             # Calculate alignment using complex tensor operations
             context_alignment = node_complex.forward(running_context).sum()
+
+            # activation clipping
             context_strength = torch.min(context_alignment, torch.tensor(self.max_activation_strength))
             
             if context_strength > self.activation_threshold:
@@ -42,3 +44,26 @@ class ContextPropagation:
                 )
         
         return propagated_activations
+
+'''
+##Changes to context propoagation 
+
+implement an activation table 
+prapogate the activates and let the magnitude flow 
+
+treat activation like energy which can flow and radiate 
+
+
+Not all connected neighbours are same, some are more special than others
+
+
+1) first send energy current form the active neuron to the contextually colsest neuron 
+in poportion to mean of 
+
+2) For radiated connections distribute the remaining activations energy by soft max
+
+
+use activation threshold during infernce (beam search) 
+
+
+'''

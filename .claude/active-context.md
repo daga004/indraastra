@@ -1,13 +1,13 @@
 # Active Context: Word-Tree
 
 ## Current Work Focus
-**Exploration Mode Session**: Understanding the network architecture and workings of Version 2 implementation
+**Prototyping Phase**: Designing simplified DGraph + DragonflyDB architecture with Version_2 context propagation mechanics
 
-## Recent Analysis
-- **Architecture Discovery**: Identified graph-based neural language model using complex tensors
-- **Component Mapping**: Documented core components (ComplexTensor, ContextPropagation, Training, Inference)
-- **Design Pattern Recognition**: Graph-native neural networks with contrastive learning
-- **Memory Bank Establishment**: Created comprehensive documentation system for project continuity
+## Recent Architecture Decisions
+- **Storage Migration**: Neo4j → DGraph with selective HNSW indexing on theta vectors
+- **Gradient Management**: DragonflyDB for high-performance gradient accumulation (25x Redis performance)
+- **Context Propagation**: Integrated authentic Version_2 mechanics (complex tensor operations)
+- **Simplified Approach**: Three-tier architecture optimized for Mac Mini M4 Pro prototyping
 
 ## Next Steps
 1. **Deep Dive Analysis**: Examine specific implementation details in key components
